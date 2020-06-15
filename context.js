@@ -84,8 +84,6 @@ function whatIsThis() {
 let context1 = this
 
 
-
-
 let product = {
   name: 'snake plant',
   price: 45.32,
@@ -97,6 +95,9 @@ let func = whatIsThis.bind(product)
 
 // uncomment the line below and tell us what the context of "this" is when we invoke func
 let context2 = product
+
+
+
 
 let vacation = {
   location: 'Hawaii',

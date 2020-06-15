@@ -15,6 +15,12 @@
 */
 
 // Code here
+function CarFactory(make, model){
+  this.make = 'Ford';
+  this.model = 'Mustang';
+}
+
+const myCar = new CarFactory ();
 
 ////////// PROBLEM 2 //////////
 
@@ -34,7 +40,8 @@ function Employee(name, email, hireDate) {
   */
   
   // Code here
-  
+  const bob = new Employee('Bob', 'bob@gmail.com', '01-02-98')
+
   ////////// PROBLEM 3 //////////
   
   // Do not edit the code below.
@@ -49,16 +56,25 @@ function Employee(name, email, hireDate) {
   /*
     Write a constructor function, including method definitions, which will make the above function invocations function properly.
   
-    Hint: you'll need to add a move property,
-      with a starting value of zero, and write a moveCar function which will increment the move property by 10.
+    Hint: you'll need to add a move property, with a starting value of zero, and write a moveCar function which will increment the move property by 10.
     The move property will be added to every object that is being returned from the Car function.
     You'll also need to use the 'this' keyword properly in order to make sure you're
       invoking moveCar on the right object (prius vs mustang).
   */
   
   // Code here
-  
-  ////////// PROBLEM 4 //////////
+function Car (make, model, year) {
+  this.make = make,
+  this.model = model,
+  this.year = year,
+  this.move = 0,
+  this.moveCar = function () {
+      this.move = this.move + 10;
+      return this.move;
+  }
+}
+    
+////////// PROBLEM 4 //////////
   
   /*
     Here we have a constructor function named Movie that takes in 3 parameters:
@@ -76,7 +92,13 @@ function Employee(name, email, hireDate) {
   }
   
   // Code here
-  
+
+  Movie.prototype.changeRating = function (newRating){
+    let updatedRating = (this.rating + newRating) / 2;
+    this.rating = updatedRating;
+    return this.rating;
+  }
+
   ////////// PROBLEM 5 //////////
   
   // Write a constructor function called User. This function should take in 4 parameters called name, age, email, and savedPosts in that order. Name and email will be strings, age will be a number and savedPosts will be an array of objects. These objects will each have 3 properties: id (a number), title (a string), and rating (a number between 1 and 5). These objects are the posts that the user will have saved to their account.
@@ -85,12 +107,31 @@ function Employee(name, email, hireDate) {
   
   // Code here
   
+function User (name, age, email, savedPosts) {
+  this.name = name;
+  this.age = age;
+  this.email = email;
+  this.savedPosts = savedPosts
+}
+
+User.prototype.addSavedPost = function (id, title, rating) {
+  let newObj = {
+    id: id,
+    title: title,
+    rating: rating
+  }
+  this.savedPosts.push(newObj)
+}
+
   ////////// PROBLEM 6 //////////
   
   // You will be using the constructor function you just created in problem 5.
   // Write a prototype method for the User constructor function named removeSavedPost that will take in one number parameter representing the post id. Use this id to find and remove the matching object in the savedPosts array.
   
   // Code here
+  
+
+
   
   ////////// PROBLEM 7 //////////
   
