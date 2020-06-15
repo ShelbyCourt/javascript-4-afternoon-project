@@ -130,9 +130,15 @@ User.prototype.addSavedPost = function (id, title, rating) {
   
   // Code here
   
+User.prototype.removeSavedPost = function (id) {
+  for(var i = 0; i < this.savedPosts.length; i++) {
+    if(this.savedPosts[i].id === id) {
+        this.savedPosts.splice(i, 1);
+        break;
+    }
+  }
+}
 
-
-  
   ////////// PROBLEM 7 //////////
   
   // You will continue to use the constructor function you created in problem 5.
@@ -140,3 +146,12 @@ User.prototype.addSavedPost = function (id, title, rating) {
   
   // Code here
   
+  User.prototype.changePostRating = function (id, newRating) {
+    for(var i = 0; i < this.savedPosts.length; i++) {
+      if(this.savedPosts[i].id === id) {
+         this.savedPosts[i].rating = newRating;
+        // this.savedPosts.push(this.savedPosts[i].newRating);
+      }
+    }
+}
+
